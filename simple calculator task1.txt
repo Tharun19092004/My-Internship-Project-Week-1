@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class SimpleCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter two numbers: ");
+
+        double first = scanner.nextDouble();
+        double second = scanner.nextDouble();
+
+        System.out.println("Enter an operator (+, -, *, /): ");
+        char operator = scanner.next().charAt(0);
+
+        double result;
+
+        switch (operator) {
+            case '+':
+                result = first + second;
+                break;
+            case '-':
+                result = first - second;
+                break;
+            case '*':
+                result = first * second;
+                break;
+            case '/':
+                if (second == 0) {
+                    System.out.println("Error! Division by zero is not allowed.");
+                    return;
+                }
+                result = first / second;
+                break;
+            default:
+                System.out.println("Error! Invalid operator.");
+                return;
+        }
+
+        System.out.println("The result is: " + result);
+    }
+}
